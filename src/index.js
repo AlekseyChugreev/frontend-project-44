@@ -1,23 +1,17 @@
 import readlineSync from 'readline-sync';
-import _ from 'lodash';
-export { game };
+export { commonLogic };
 
-const isEven = (number) => {
-    return number % 2 === 0;
-};
-
-const game = () => {
+const commonLogic = (information, localLogic) => {
     console.log('Welcome to the Brain Games!');
     const userName = readlineSync.question('May I have your name? ');
     console.log(`Hello, ${userName}!`);
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
+    console.log(information);
 
     let flag = true;
     for (let i = 0; i < 3; i++) {
-        const number = _.random(0, 100);
-        console.log(`Question: ${number}`);
+        const [question, correctAnswer] = localLogic();
+        console.log(`Question: ${question}`);
         const userAnswer = readlineSync.question('Your answer: ');
-        const correctAnswer = isEven(number) ? 'yes' : 'no';
 
         if (userAnswer !== correctAnswer) {
             console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
