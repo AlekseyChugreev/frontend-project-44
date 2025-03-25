@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import { commonLogic } from '../index.js';
+export { game };
 
 const getProgression = () => {
     const progressions = [
@@ -22,5 +24,6 @@ const localLogic = () => {
     return [progressionStr, correctAnswer];
 };
 
-
-console.log(localLogic());
+const game = () => {
+    commonLogic(information, localLogic);
+};
