@@ -9,7 +9,7 @@ const getProgression = () => {
     const resultnumber = startNumber + addedNumber;
     progression.push(resultnumber);
     startNumber = resultnumber;
-  };
+  }
   return progression;
 };
 

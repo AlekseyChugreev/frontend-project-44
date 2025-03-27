@@ -16,9 +16,9 @@ const commonLogic = (information, localLogic) => {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       flag = false;
       break;
-    };
+    }
     console.log('Correct!');
-  };
+  }
   if (flag) console.log(`Congratulations, ${userName}!`);
   else console.log(`Let's try again, ${userName}!`);
 };
