@@ -14,7 +14,7 @@ const localLogic = () => {
   const number = _.random(0, 100);
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [number, correctAnswer];
-}
+};
 
 const game = () => {
   commonLogic(information, localLogic);

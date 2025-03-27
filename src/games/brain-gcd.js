@@ -13,7 +13,7 @@ const localLogic = () => {
   const numbers = `${number1} ${number2}`;
   const correctAnswer = gcd(number1, number2).toString();
   return [numbers, correctAnswer];
-}
+};
 
 const game = () => {
   commonLogic(information, localLogic);
