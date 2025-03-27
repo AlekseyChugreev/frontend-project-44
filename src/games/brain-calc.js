@@ -1,12 +1,15 @@
 import _ from 'lodash';
 import commonLogic from '../index.js';
-import { evaluate } from 'mathjs';
 
 const information = 'What is the result of the expression?';
 const localLogic = () => {
-  const signsArr = ['+', '-', '*'];
-  const expression = `${_.random(0, 10)} ${_.sample(signsArr)} ${_.random(0, 10)}`;
-  const correctAnswer = evaluate(expression).toString();
+  const signs = ['+', '-', '*'];
+  const functions = [((a, b) => a + b), ((a, b) => a - b), ((a, b) => a * b)];
+  const index = _.random(0, 2);
+  const num1 = _.random(0, 10);
+  const num2 = _.random(0, 10);
+  const expression = `${num1} ${signs[index]} ${num2}`;
+  const correctAnswer = functions[index](num1, num2).toString();
   return [expression, correctAnswer];
 };
 
