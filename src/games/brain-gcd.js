@@ -1,22 +1,22 @@
 import _ from 'lodash';
-import commonLogic from '../index.js';
+import launchGame from '../index.js';
 
-const gcd = (a, b) => {
+const getGcd = (a, b) => {
   if (b === 0) return a;
-  return gcd(b, a % b);
+  return getGcd(b, a % b);
 };
 
 const information = 'Find the greatest common divisor of given numbers.';
-const localLogic = () => {
+const getGameData = () => {
   const number1 = _.random(0, 100);
   const number2 = _.random(0, 100);
   const numbers = `${number1} ${number2}`;
-  const correctAnswer = gcd(number1, number2).toString();
+  const correctAnswer = getGcd(number1, number2).toString();
   return [numbers, correctAnswer];
 };
 
-const game = () => {
-  commonLogic(information, localLogic);
+const playGame = () => {
+  launchGame(information, getGameData);
 };
 
-export default game;
+export default playGame;

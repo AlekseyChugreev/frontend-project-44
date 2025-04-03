@@ -1,15 +1,15 @@
 import _ from 'lodash';
-import commonLogic from '../index.js';
+import launchGame from '../index.js';
 
 const information = 'Answer "yes" if the number is even, otherwise answer "no".';
-const localLogic = () => {
+const getGameData = () => {
   const number = _.random(0, 100);
   const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
   return [number, correctAnswer];
 };
 
-const game = () => {
-  commonLogic(information, localLogic);
+const playGame = () => {
+  launchGame(information, getGameData);
 };
 
-export default game;
+export default playGame;

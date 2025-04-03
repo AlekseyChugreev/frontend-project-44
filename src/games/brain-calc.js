@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import commonLogic from '../index.js';
+import launchGame from '../index.js';
 
 const information = 'What is the result of the expression?';
-const localLogic = () => {
+const getGameData = () => {
   const signs = ['+', '-', '*'];
   const functions = [((a, b) => a + b), ((a, b) => a - b), ((a, b) => a * b)];
   const index = _.random(0, 2);
@@ -13,8 +13,8 @@ const localLogic = () => {
   return [expression, correctAnswer];
 };
 
-const game = () => {
-  commonLogic(information, localLogic);
+const playGame = () => {
+  launchGame(information, getGameData);
 };
 
-export default game;
+export default playGame;

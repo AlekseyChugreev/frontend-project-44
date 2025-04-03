@@ -1,11 +1,12 @@
 import _ from 'lodash';
-import commonLogic from '../index.js';
+import launchGame from '../index.js';
 
 const getProgression = () => {
   const progression = [];
   let startNumber = _.random(0, 100);
   const addedNumber = _.random(2, 7);
-  for (let i = 0; i < 10; i += 1) {
+  const elementsCount = 10;
+  for (let i = 1; i <= elementsCount; i += 1) {
     const resultnumber = startNumber + addedNumber;
     progression.push(resultnumber);
     startNumber = resultnumber;
@@ -14,7 +15,7 @@ const getProgression = () => {
 };
 
 const information = 'What number is missing in the progression?';
-const localLogic = () => {
+const getGameData = () => {
   const progression = getProgression();
   const randomIndex = _.random(0, progression.length - 1);
   const correctAnswer = progression[randomIndex].toString();
@@ -23,8 +24,8 @@ const localLogic = () => {
   return [progressionStr, correctAnswer];
 };
 
-const game = () => {
-  commonLogic(information, localLogic);
+const playGame = () => {
+  launchGame(information, getGameData);
 };
 
-export default game;
+export default playGame;

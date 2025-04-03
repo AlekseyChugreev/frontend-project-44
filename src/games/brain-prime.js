@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import commonLogic from '../index.js';
+import launchGame from '../index.js';
 
 const isPrime = (number) => {
   if (number < 2) return false;
@@ -10,14 +10,14 @@ const isPrime = (number) => {
 };
 
 const information = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const localLogic = () => {
+const getGameData = () => {
   const number = _.random(0, 100);
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [number, correctAnswer];
 };
 
-const game = () => {
-  commonLogic(information, localLogic);
+const playGame = () => {
+  launchGame(information, getGameData);
 };
 
-export default game;
+export default playGame;
